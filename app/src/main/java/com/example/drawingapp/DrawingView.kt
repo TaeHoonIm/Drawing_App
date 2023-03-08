@@ -96,7 +96,7 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
 
         return true
     }
-
+    //붓 두께 설정
     fun setSizeForBrush(newSize : Float){
         mBrushSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
             newSize, resources.displayMetrics
