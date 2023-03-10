@@ -33,6 +33,11 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         mCanvasPaint = Paint(Paint.DITHER_FLAG)
 
     }
+
+    fun setColor(newColor : String){
+        color = Color.parseColor(newColor)
+        mDrawPaint!!.color = color
+    }
     //화면 크기가 바뀔 때마다 불러옴. 즉, DrawingView가 표시될 때
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
