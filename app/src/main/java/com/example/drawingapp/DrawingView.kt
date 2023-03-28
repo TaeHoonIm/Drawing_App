@@ -18,11 +18,20 @@ class DrawingView(context: Context, attrs: AttributeSet) : View(context, attrs) 
     private var color = Color.BLACK
     private var canvas : Canvas? = null
     private val mPaths = ArrayList<CustomPath>()
+    private val mUndoPaths = ArrayList<CustomPath>()
 
     init {
         setUpDrawing()
     }
 
+    fun onClickUndo(){
+        if(mPaths.size > 0){
+            //바로 전 행동을 지우기 위해 mPaths의 size - 1
+            mUndoPaths.add(mPaths.removeAt(mPaths.size - 1))
+            //invalidate함수를 통해 전체 페이지를 무효화 시킴
+            invalidate()
+        }
+    }
     private fun setUpDrawing(){
         mDrawPaint = Paint()
         mDrawPath = CustomPath(color, mBrushSize)
